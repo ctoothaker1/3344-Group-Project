@@ -83,24 +83,24 @@
         flex-direction: column;
         align-items: center;
     } */
-    .navLinks li{
+    /* .navLinks li{
         
-        /* margin: 6px;
-        /* width: 15%; */
-    } 
+        margin: 6px;
+        width: 15%;
+    }  */
 }
-@media screen and (max-width: 375px){
+/* @media screen and (max-width: 375px){
     .navLinks{
         margin-bottom: -10px;
     }
     .navLinks li{
-        /* font-size: 0.75rem;
+        font-size: 0.75rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         margin: 8px;
         width: 30%;
-        height: 40px; */
+        height: 40px;
     }
     
-}
+} */

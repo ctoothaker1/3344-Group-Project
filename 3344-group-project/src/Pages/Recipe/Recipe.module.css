@@ -1,0 +1,47 @@
+.mainContent{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.leftContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 20px;
+    background-color: white;
+    margin-right:10px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2) inset;
+}
+.recipeImg{
+    max-width: 45vw;
+    border-radius: 8px;
+}
+.denseInfo{
+    display: flex;
+}
+.denseInfoItem{
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2) inset;
+    border-radius: 8px;
+    margin: 10px;
+    text-align: center;
+    padding:10px;
+}
+.rightContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 20px;
+    background-color: white;
+    margin-right:10px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2 )inset;
+}
+
+/* smaller screen media query makes layout column*/

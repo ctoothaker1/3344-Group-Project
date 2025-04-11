@@ -1,24 +1,68 @@
+.mainContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .searchComponentContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.searchResultsContainer{
+.resultsList{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: center;
+    /* margin-left: -20px; center items */
 }
 .resultItem{
     background-color: white;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 10px;
     border-radius: 8px;
-    width: 55vw;
+    padding: 10px;
+    width: fit-content;
+    max-width: min-content;
+}
+.resultItem h3{
+    text-wrap:wrap;
 }
 .resultItem img{
-    max-width: 50vw;
+    max-width: 30vw;
     margin-bottom: 20px;
+    border-radius: 5px;
+}
+.resultLink{
+    text-decoration: none;
+    color: inherit;
+}
+.resultItem:hover{ /* change BG color when result card is hovered over*/
+    cursor: pointer;
+    background-color: rgb(245, 245, 245);
+    transform: scale(1.01);
+    transition: transform 0.3s ease;
+}
+.resultItem:hover img{
+    filter: brightness(0.9);
+    transition: filter 0.5s ease;
+    transform: scale(1.001);
+    transition: transform 0.3s ease;
+}
+
+@media screen and (max-width: 480px){
+    .resultsList{
+        flex-direction: column;
+    }
+    .resultItem img{
+        max-width: 80vw;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 768px){
+    .resultItem img{
+        max-width: 70vw;
+    }
 }
