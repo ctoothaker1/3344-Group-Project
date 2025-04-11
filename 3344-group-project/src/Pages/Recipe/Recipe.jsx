@@ -14,7 +14,7 @@ const Recipe = () => {
     const fetchRecipeDetails = async () => {
         try {
             console.log("idmeal: ",idMeal);
-            const response = await fetch(`http://localhost:5000/api/recipe/${idMeal}`);
+            const response = await fetch(`http://localhost:5001/api/recipe/${idMeal}`);
             const data = await response.json();
             setRecipe(data.meals[0]); // only one result based on id, take first element in json
             console.log(data.meals);
