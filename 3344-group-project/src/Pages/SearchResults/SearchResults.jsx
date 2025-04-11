@@ -31,13 +31,13 @@ const SearchResults = () => {
   //API CALL with provided query
   const fetchSearchResults = async (query) => {
     setLoading(true); // fetching data, set loading to true
-    const endpoint = `http://localhost:5000/api/recipes?query=${query}`;
+    const endpoint = `http://localhost:5001/api/recipes?query=${query}`;
   console.log("✅ Final API endpoint:", endpoint);
     try
     {
       // this should be the endpoint we created in the server
       //const response = await fetch(`/api/recipes?query=${query}`); // //`http://localhost:5000/api/recipes?query=${query}`
-      const response = await fetch(`http://localhost:5000/api/recipes?query=${query}`);
+      const response = await fetch(`http://localhost:5001/api/recipes?query=${query}`);
       console.log("response variable: ",response);
       
       const data = await response.json(); // set data to json API response ERRRRRROR
