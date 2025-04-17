@@ -3,7 +3,7 @@ import {createContext, useState, useEffect} from "react";
 export const RatingsContext=createContext();
 
 
- const RatingsProvider=({children})=>
+ export const RatingsProvider=({children})=>
     {
         
     const [rating,setRating]=useState(() =>
@@ -41,3 +41,4 @@ export const RatingsContext=createContext();
 
 
     }
+ 
