@@ -8,7 +8,14 @@ const app = express(); // create a new express application
 const baseUrl = "https://www.themealdb.com/api/json/v1/"; 
 const apiKey = process.env.API_KEY;
 
-app.use(cors());
+app.use(cors( // must specify origins to prepare for hosting on render
+    {
+        origin: ["http://localhost:5173", "http://localhost:5001"], // render urls for frontend and backend go in the bracket here
+        methods: ["GET", "POST"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+        credentials: true,   
+    }
+));
 // this app.get is for searching the meals DB with a query
 app.get('/api/recipes', async(request, response) => {
     const {query} = request.query; 
@@ -26,8 +33,6 @@ app.get('/api/recipes', async(request, response) => {
     }
     catch(error){ // handle any errors that are thrown
         console.error("Error fetching data from API (server.mjs)", error);
-        // response.status(500).json({error: 'Failed to fetch data (server.mjs)'}); // 500 is standard error code from server
-
     }
 }) 
 // this app.get is for requesting a single meal JSON with idMeal
@@ -65,10 +70,6 @@ app.get('/api/random', async(request,response)=>{
         console.error("Error fetching random meal from API (server.mjs)", error);
     }
 });
-
-
-
-
 
 
 app.listen(5001, () => { //5001 is port
