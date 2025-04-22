@@ -59,7 +59,6 @@ const MealPlan = () => {
     <main>
       <div className={styles.mealPlanContent}>
         <h1>{plan.name}</h1>
-
         <div className={styles.editPlanContainer}>
           {isEditing ? (
             <>
@@ -102,11 +101,6 @@ const MealPlan = () => {
             </button>
           )}
         </div>
-
-          
-     
-
-
         <hr />
         {daysOfWeek.map(day => (
           <section key={day} className={styles.daySection}>
@@ -119,10 +113,18 @@ const MealPlan = () => {
                       <img src={meal.strMealThumb} alt={meal.strMeal} className={styles.mealImage}/>
                       <p className={styles.mealTitle}>{meal.strMeal}</p>
                     </Link>
-                    {/* REMOVE BUTTON ON recipe hover */}
-                    <button className={styles.removeButton}
-                    onClick={() => handleRemoveMeal(day, meal.idMeal)}>Remove</button>
+
+                   
+                    {isEditing && (
+                      <button
+                        className={styles.removeButton}
+                        onClick={() => handleRemoveMeal(day, meal.idMeal)}
+                      >
+                        Remove
+                      </button>
+    )}
                   </div>
+
                 ))
               ) : (
                 <p>No meal assigned</p>
