@@ -22,3 +22,8 @@
 .btn-danger:hover {
     background-color: #e60000;
 }
+@media screen and (max-width: 480px){
+    .btn{
+        font-size: 100%;
+    }
+}

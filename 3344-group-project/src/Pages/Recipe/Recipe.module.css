@@ -49,3 +49,25 @@
 }
 
 /* smaller screen media query makes layout column*/
+@media screen and (max-width: 768px){
+    .toolbar{
+        margin-bottom: 10px;
+    }
+    .recipeContainer{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        
+    }
+    .rightContainer
+    {
+        margin-top: 10px;
+        margin-right: 0;
+        width:95%;
+    }
+    .leftContainer{
+        margin:0;
+        width: 95%;
+    }
+}

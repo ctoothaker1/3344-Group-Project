@@ -115,6 +115,7 @@ const Recipe = () => {
 
     return (
     <main className={styles.mainContent}>
+      <div className={styles.toolbar}>
         <RecipeToolbar /* pass all necessary properties/callbacks */
             isFavorite={isFavorite}
             onAddToFavorites={toggleFavorite}
@@ -127,7 +128,7 @@ const Recipe = () => {
             onAddToPlanClick={handleAddToPlanClick}
             onCreatePlanClick={handleCreatePlanClick}
         /> 
-
+      </div>
         <div className={styles.recipeContainer}>
             <div className={styles.leftContainer}>
                 <h1>{recipe.strMeal}</h1>

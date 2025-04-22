@@ -21,26 +21,27 @@
 }
 
 .resultsList{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 24px;
     padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
-
+    /* box-sizing: border-box; */
+      
 }
 .resultItem{
     position: relative;
     background-color: white;
     display: flex;
+    flex: 0 1 400px;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
     border-radius: 8px;
     padding: 0;
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 500px;
 }
 
 .resultItem:hover{ /* change BG color when result card is hovered over*/
@@ -52,7 +53,7 @@
 
 .resultImage {
     width: 100%;
-    max-height: 180px;
+    max-height: 200px;
     object-fit: cover;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -114,37 +115,32 @@
     pointer-events: auto;
 }
 
-/* @media screen and (max-width: 480px){
-    .resultImage {
-        max-width: 100%;
-        height: 160px;
+@media screen and (max-width: 480px){
+    .resultsList{
+        text-size-adjust: 10px;
     }
-} */
+    .resultItem {
+        max-width: 75%;
+        
+    }
+    .resultTitle{
+        font-size: 170%;
+    }
+    .favoriteButton{
+        font-size: 170%;
+    }
+}
 
 @media screen and (max-width: 768px){
     .searchResultsContainer{
         justify-content: center;
         align-items: center;
     }
-    .resultsList{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-    }
     .favoriteButton{ /* Make favorite button always show when user is on phone/tablet*/
         transition: none;
         opacity: 1 ;
         pointer-events: auto ;
-        transform: translateY(0) ;
+        /* transform: translateY(0) ; */
         transition: none ;
-    }
-    .resultItem{
-        width: 75%;
-        height: 300px;
-    }
-    .resultImage{
-        max-height: 220px;
     }
 }

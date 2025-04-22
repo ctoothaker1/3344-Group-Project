@@ -10,6 +10,7 @@ const MealPlan = () => {
   const { mealPlans, setMealPlans } = useContext(MealPlansContext);
   const [newPlanName, setNewPlanName] = useState('');
   const daysOfWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+  const [isEditing, setIsEditing] = useState(false);
 
   // Find the plan by name - name is unique - must warn user if they attempt to name same
   const plan = mealPlans.find(plan => plan.name == planName);
@@ -58,44 +59,55 @@ const MealPlan = () => {
     <main>
       <div className={styles.mealPlanContent}>
         <h1>{plan.name}</h1>
-        {/* <h1>MealPlan</h1>
-        <p>a meal plan is a selection of meals that have been assigned to days in the week</p>
-        <h3>This page will: </h3>
-        <ul>
-          <li>Only be visited when a user clicks a specific plan from their 'MyPlans' page</li>
-          <li>Have similar code to MyFavorites (except for grouping meals by designated day)</li>
-          <li>display a day-day breakdown of meals within the plan.</li>
-          <li>meals will be clickable, or there can be a button that displays on hover that redirects to the recipe page</li>
-          <li>display all meals in the selected mealplan</li>
-          <li>allow users to delete meals from the plan (buttons appear on meal plan hover... reuse code from favorites)</li>
-          <li>Allow the user to delete the meal plan from this page</li>
-          <li>allow the user to rename the meal plan from this page</li>
-          <li>anything else?</li>
-        </ul> */}
 
-        <div className={styles.renameContainer}>
-          <input
-            type="text"
-            className={styles.renameInput}
-            placeholder="Enter new plan name"
-            value={newPlanName}
-            onChange={(e) => setNewPlanName(e.target.value)}
-          />
-          <button className={styles.renameButton} onClick={handleRenamePlan}>Rename Plan</button>
+        <div className={styles.editPlanContainer}>
+          {isEditing ? (
+            <>
+              <div className={styles.renameContainer}>
+                <input
+                  type="text"
+                  className={styles.renameInput}
+                  placeholder="Enter new plan name"
+                  value={newPlanName}
+                  onChange={e => setNewPlanName(e.target.value)}
+                />
+                <button
+                  className={styles.renameButton}
+                  onClick={handleRenamePlan}
+                >
+                  Rename Plan
+                </button>
+              </div>
+
+              <button
+                className={styles.deleteButton}
+                onClick={handleDeletePlan}
+              >
+                Delete Plan
+              </button>
+
+              <button
+                className={styles.cancelButton}
+                onClick={() => setIsEditing(false)}
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <button
+              className={styles.editToggleButton}
+              onClick={() => setIsEditing(true)}
+            >
+              Edit / Delete Plan
+            </button>
+          )}
         </div>
 
-        <div style={{ textAlign: "center", marginBottom: "30px" }}>
-          <button
-            onClick={handleDeletePlan}
-            style={{ backgroundColor: "crimson", color: "white", border: "none", padding: "8px 16px", borderRadius: "4px" }}
-          >
-            Delete Plan
-          </button>
-        </div>
+          
+     
 
-        {/* INCLUDE FUNCTIONALITY TO RENAME PLAN */}
+
         <hr />
-        {/* EACH DAY OF THE WEEK DISPLAYED IN A SECTION */}
         {daysOfWeek.map(day => (
           <section key={day} className={styles.daySection}>
             <h3>{day.charAt(0).toUpperCase() + day.slice(1)}</h3> {/*format days of week */}

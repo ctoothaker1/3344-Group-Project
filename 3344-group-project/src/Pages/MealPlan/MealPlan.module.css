@@ -106,8 +106,6 @@
     border-bottom: 1px solid #ccc;
 }
 
-
-/* Remove button */
 .removeButton {
     background-color: crimson;
     color: white;
@@ -122,6 +120,38 @@
 .removeButton:hover {
     background-color: darkred;
 }
+
+.editPlanContainer {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.editToggleButton {
+    background-color: #004d13;;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.deleteButton {
+    background-color: crimson;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.cancelButton {
+    background: transparent;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
 
 @media screen and (max-width: 600px) {
     .mealCard {
