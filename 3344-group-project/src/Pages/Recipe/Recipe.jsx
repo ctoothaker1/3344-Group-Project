@@ -6,6 +6,7 @@ import styles from './Recipe.module.css';
 import RecipeToolbar from '../../components/RecipeToolbar/RecipeToolbar';
 import { MealPlansContext } from "../../components/mealPlansContext/mealPlansContext.jsx";
 import { FavoritesContext } from '../../components/useContext/useContext.jsx';
+import AddRatings from "../Ratings/AddRatings.jsx";
 
 const Recipe = () => {
     const {idMeal} = useParams();
@@ -113,6 +114,16 @@ const Recipe = () => {
           setShowPlanForm(false);
     };
 
+
+
+
+
+
+
+
+
+
+
     return (
     <main className={styles.mainContent}>
       <div className={styles.toolbar}>
@@ -128,11 +139,14 @@ const Recipe = () => {
             onAddToPlanClick={handleAddToPlanClick}
             onCreatePlanClick={handleCreatePlanClick}
         /> 
-      </div>
+          
+
         <div className={styles.recipeContainer}>
             <div className={styles.leftContainer}>
                 <h1>{recipe.strMeal}</h1>
                 <img src={recipe.strMealThumb} alt={recipe.strMeal} className={styles.recipeImg}/>
+                <AddRatings recipeID={recipe.strMeal}/>
+
             </div>
             <div className={styles.rightContainer}>
                 <div className = {styles.denseInfo}>
