@@ -25,7 +25,7 @@ function Home() {
           <div className={styles.homepageContent}>
             <div className={styles.homepageRow}>
               <div className={styles.homepageLeft}>
-                <h1 className={styles.homepageTitle}>This is the Homepage</h1>
+                <h1 className={styles.homepageTitle}>Welcome to Recipe Advisor</h1>
                 <SearchBar onSearchSubmit={handleSearchSubmit}/> {/* search component*/}
               </div>
               <div className={styles.homepageRight}>
