@@ -114,17 +114,7 @@ const Recipe = () => {
           setShowPlanForm(false);
     };
 
-
-
-
-
-
-
-
-
-
-
-    return (
+    return(
     <main className={styles.mainContent}>
       <div className={styles.toolbar}>
         <RecipeToolbar /* pass all necessary properties/callbacks */
@@ -165,7 +155,8 @@ const Recipe = () => {
                 {/* embed strYoutube??? */}
             </div>
         </div>
+        </div>
     </main>
   );
-}
+  };
 export default Recipe;
