@@ -4,6 +4,8 @@ import {useContext} from "react";
 function AddRatings({recipeID})
 {
 const {ratings,setRating}=useContext(RatingsContext);
+console.log(ratings);
+
  //if the user already has a rating we know that we are just changing the value 
 const handleRating=(e)=>
 {

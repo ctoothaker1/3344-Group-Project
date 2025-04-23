@@ -3,10 +3,10 @@ import {useContext} from "react"
 import {RatingsContext} from "./RatingsContext.jsx"
 const Ratings=()=>
 {
-    const {ratings}= useContext(RatingsContext);
+    const {ratings}= useContext(RatingsContext); //undefined
+    console.log(ratings); 
 
-
-    const sortedRating=[...ratings].sort((a,b)=>b.rating-a.rating);
+    const sortedRating=[...ratings].sort((a,b)=>b.rating-a.rating); //cant iterate undefined.
 
 
     return(
