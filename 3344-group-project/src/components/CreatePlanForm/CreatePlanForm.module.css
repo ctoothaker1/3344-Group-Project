@@ -13,7 +13,7 @@
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex: 1;
 }
 .createPlanForm input {
@@ -22,10 +22,12 @@
     border: 2px solid #4d4c4c;
     border-radius: 5px;
     flex-grow: 1;
-    /* min-width: 200px; */
+    min-width: 200px;
+    max-height: fit-content;
 }
 .createPlanForm button {
-    padding: 10px 20px;
+    padding: 10px 10px;
+    margin-bottom: -5px;
     font-size: 1rem;
     cursor: pointer;
     background-color: #004d13e5;
