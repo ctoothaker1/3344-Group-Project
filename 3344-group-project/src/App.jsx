@@ -5,17 +5,23 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Home from './Pages/Home/Home.jsx'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import Search from './Pages/Search/Search.jsx'
+import SearchResults from './Pages/SearchResults/SearchResults.jsx'
+import FirstSearch from './Pages/FirstSearch/FirstSearch.jsx'
 import MyPlans from './Pages/MyPlans/MyPlans.jsx'
 import Recipe from './Pages/Recipe/Recipe.jsx'
 import MyFavorites from './Pages/MyFavorites/MyFavorites.jsx'
 import MealPlan from './Pages/MealPlan/MealPlan.jsx'
+import { FavoritesProvider } from './components/useContext/useContext.js'
+import Ratings from "./Pages/Ratings/Ratings.jsx"
+
+
 
 
 function App() {
   return (
     <>
       <Router>
+        <FavoritesProvider>
         <div className='App'>
           <Header />
           <Routes>
@@ -26,11 +32,14 @@ function App() {
             <Route path='/myplans/' element={<MyPlans/>}/>
             <Route path='/plan/' element={<MealPlan/>}></Route>
             <Route path='/plan/:planName' element={<MealPlan/>}></Route>
-            <Route path='/search/' element={<Search />} />
-            <Route path="/search/:query" element={<Search />} />
+            <Route path='/search/' element={<FirstSearch />} />
+            <Route path="/search/:query" element={<SearchResults />} />
+            <Route path="/ratings/" element={<Ratings />}/>  
+           
           </Routes>
           <Footer />
         </div>
+        </FavoritesProvider>
       </Router>
 
     </>
