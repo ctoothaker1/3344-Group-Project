@@ -34,6 +34,8 @@ const Footer = () => {
         <option value="/plan/planname">plan with name</option>
         <option value="/search/">searchNoQuery</option>
         <option value="/search/a">search a query</option>
+        <option value="/ratings">ratings</option>
+
 
 
       </select>
