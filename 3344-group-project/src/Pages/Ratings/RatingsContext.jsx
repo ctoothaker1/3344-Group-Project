@@ -2,11 +2,10 @@ import {createContext, useState, useEffect} from "react";
 
 export const RatingsContext=createContext();
 
-
  export const RatingsProvider=({children})=>
     {
         
-    const [rating,setRating]=useState(() =>
+    const [ratings,setRatings]=useState(() =>
 
     {
 
@@ -17,28 +16,15 @@ export const RatingsContext=createContext();
 
     useEffect(()=>
     {
-    localStorage.setItem("rating", JSON.stringify(rating));
+    localStorage.setItem("ratings", JSON.stringify(ratings));
 
-    }, [rating]);
+    }, [ratings]);
 
-
-
-
-        
-        
-        
         return(
-
-            <RatingsContext.Provider value={{rating, setRating}}>
+            <RatingsContext.Provider value={{ratings, setRatings}}>
                 {children}
             </RatingsContext.Provider>
-
-
-
-
         )
-
-
 
     }
  

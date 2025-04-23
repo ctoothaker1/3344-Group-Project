@@ -1,10 +1,10 @@
 //this document is for sorting and displaying 
 import {useContext} from "react"
-import {RatingsContext} from "./RatingsContext.jsx"
+import {RatingsContext, RatingsProvider} from "./RatingsContext.jsx"
 const Ratings=()=>
 {
-    const {ratings}= useContext(RatingsContext); //undefined
-    console.log(ratings); 
+    const {ratings,setRatings}= useContext(RatingsContext); //undefined
+    console.log("ratings from context",ratings); 
 
     const sortedRating=[...ratings].sort((a,b)=>b.rating-a.rating); //cant iterate undefined.
 
