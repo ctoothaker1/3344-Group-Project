@@ -1,7 +1,6 @@
 //this document is for sorting and displaying 
 import {useContext} from "react"
 import {RatingsContext, RatingsProvider} from "./RatingsContext.jsx"
-import styles from "./Ratings.module.css"; 
 const Ratings=()=>
 {
     const {ratings}= useContext(RatingsContext); //undefined
