@@ -72,7 +72,10 @@ const MealPlan = () => {
                 />
                 <button
                   className={styles.renameButton}
-                  onClick={handleRenamePlan}
+                  onClick={() => {
+                    handleRenamePlan();
+                    setIsEditing(false);
+                  }}
                 >
                   Rename Plan
                 </button>
@@ -122,7 +125,7 @@ const MealPlan = () => {
                       >
                         Remove
                       </button>
-    )}
+                    )}
                   </div>
 
                 ))

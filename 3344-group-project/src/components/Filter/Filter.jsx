@@ -9,7 +9,7 @@ import {useState} from 'react'
 
 const Filter=({getFilter})=>
   {
-  const [diets,setDiets]=useState([]);
+  const [selectedDiet,setSelectedDiet]=useState([]);
   const dietOptions = [
       "Beef",
       "Chicken",
@@ -26,38 +26,54 @@ const Filter=({getFilter})=>
       "Breakfast",
       "Goat"
     ];
-  const handleDiets = (event)=>
-      {
-        const { value,checked }=event.target;
 
-        if(checked){
-          const update= [...diets,value];
-          setDiets(update);  //we are setting the diets aka recognizing them in the return statememnt
-          getFilter(update); // here we are literally passing in the the correctly queried diet restrictions
-                                          
-        }
-        else{
-          const update=diets.filter(diet=>diet!=value); //setting update equal to a new array that only includes checked boxes(diets)
-          setDiets(update); //setting
-          getFilter(update); //letting search know we removed a diet restriction and now it's time to update        
-        }
-  
-      }
-      //think about switching this into 
+  const [visible, setVisible] = useState(false);
+  const toggleVisible = () => setVisible(shown => !shown);
+    //set diet when radio clicked
+  const handleChange = (e) => {
+    const diet = e.target.value;
+    setSelectedDiet(diet);
+    getFilter([diet]);
+  };
+  //clear radio selection
+  const handleClear = () => {
+    setSelectedDiet('');
+    getFilter([]);
+  };
+
   return(
-      <section className={styles.checkbox}>
-      {dietOptions.map((diet) => (   //map function to iterate through
-          <label key={diet}>
-            <input
-              type="checkbox"
-              value={diet}
-              checked={diets.includes(diet)} //checking the current state of diet to see if it is included within the true array
-              onChange={handleDiets}  
-            />
-            {diet}
-          </label>
-        ))}
+      <div className={styles.filterContainer}>
+        <button className={styles.toggleButton} onClick={toggleVisible}>
+          {visible ? 'Hide Filters' : 'Show Filters'}
+        </button>
+        
+        {visible && (
+          <button
+            className={styles.clearButton}
+            onClick={handleClear}
+          >
+            Clear
+          </button>
+        )}
+
+
+        {visible && (
+        <section className={styles.radioGroup}>
+          {dietOptions.map(diet => (
+            <label key={diet} className={styles.radioLabel}>
+              <input
+                type="radio"
+                name="diet"              // all share the same name
+                value={diet}
+                checked={selectedDiet === diet}
+                onChange={handleChange}
+              />
+              {diet}
+            </label>
+          ))}
         </section>
+      )}
+        </div>
     )
 };
 export default Filter;

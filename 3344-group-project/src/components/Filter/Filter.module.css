@@ -1,0 +1,41 @@
+.filterContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.radioGroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 30px;
+    padding-top: 10px;
+}
+.toggleButton {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #004d13e5;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.toggleButton :hover{
+    background-color: #00691f;
+}
+.clearButton {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #004d13e5;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top:10px;
+}
+.clearButton :hover{
+    background-color: #00691f;
+}
