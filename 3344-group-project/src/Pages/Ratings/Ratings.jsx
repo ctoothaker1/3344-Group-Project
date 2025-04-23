@@ -3,7 +3,7 @@ import {useContext} from "react"
 import {RatingsContext, RatingsProvider} from "./RatingsContext.jsx"
 const Ratings=()=>
 {
-    const {ratings,setRatings}= useContext(RatingsContext); //undefined
+    const {ratings}= useContext(RatingsContext); //undefined
     console.log("ratings from context",ratings); 
 
     const sortedRating=[...ratings].sort((a,b)=>b.rating-a.rating); //cant iterate undefined.
@@ -11,10 +11,11 @@ const Ratings=()=>
 
     return(
         <div>
+            <h1> My Ratings</h1>
         <ul>
         {sortedRating.map((r)=>
         <li key={r.recipeID}>{r.recipeID}: {r.rating}</li>
-        )};
+        )}
         </ul>
         </div>
 

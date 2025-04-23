@@ -1,35 +1,48 @@
 import { RatingsContext } from "./RatingsContext.jsx";
 import {useContext} from "react";
+import styles from "./AddRatings.module.css";
 // pass in the ratings like <Rating getRating={{recipe.id, value}}
 function AddRatings({recipeID})
 {
 const {ratings,setRatings}=useContext(RatingsContext);
-console.log(ratings);
-
  //if the user already has a rating we know that we are just changing the value 
 const handleRating=(e)=>
 {
     const hasRating=ratings.some(r=>r.recipeID===recipeID);
-    const {value}=parseInt(e.target.value, 10);
-    console.log("rating vlue", value);
+    const value=Number(e.target.value);
     if(hasRating)  //if the user has the rating we are literally just gonna take that recipe and update it 
     {
     const updatedRating=ratings.map(r=>
-        r.recipeID===recipeID 
-        ? {recipeID, rating:value}
-        : r )
-        setRatings(updatedRating);
+    
+    r.recipeID===recipeID ? {recipeID, rating:value}: r ) //finds the matching 
+    
+    setRatings(updatedRating);
     } 
     else{ //if not we will create a new object within the array
         const newRatingsArray=
-        [...ratings, {recipeID, rating:value}];
+        [...ratings, {recipeID,rating:value}];
         setRatings(newRatingsArray);
     
     }
+
+
+
 }
 
+
     return(
-        <div>
+        <div className={styles.ratingcontainer}>
+            <p>Your current rating:
+
+            { ratings.some(r=>r.recipeID=recipeID)?
+            
+            ratings.map(r=>
+                r.recipeID===recipeID ? <p key={r.recipeID}>{r.rating}</p>: null)
+                : <p>No value has been entered</p>
+             
+            }
+            
+            </p>
         <label for="ratings"> Your Rating:</label>
             <select name="ratings" id="ratings" onChange={handleRating}>
             <option value="1" >1</option>
