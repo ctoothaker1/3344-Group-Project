@@ -31,13 +31,21 @@ const MyPlans = () => {
   };
 
   const handleCreatePlanClick = () =>{
-    // display component to create a new plan ("createplan")
     setShowCreatePlanForm(true); // dynamically display form when clicked
-    // maybe hide other content? we will see once styled.
   };
 
   //JSON structure for a brand new meal plan. this is what it will look like in local storage.
   const handleCreatePlan = (planName) => {
+    const lowercasePlan = planName.trim().toLowerCase()
+    // check if there is a plan with planName that already exists VERY IMPORTANT
+    const exists = mealPlans.some(
+      plan => plan.name.trim().toLowerCase() === lowercasePlan
+    )
+    if (exists) {
+      alert(`A plan named “${planName}” already exists. Choose a unique name.`)
+      return // do not create the plan.
+    }
+  
     const newPlan = {
       name: planName,
       days: {
@@ -59,17 +67,6 @@ const MyPlans = () => {
 
   return (
     <main>
-      {/* <h1>MyPlans</h1>
-      <p>a 'meal plan' is a selection of meals that the user assigns to specific days.</p>
-      <h3>This page will: </h3>
-      <ul>
-        <li>display all meal plans saved in local storage in cards with basic details</li>
-        <li>allow users to delete meal plans (select functionality for mass deleting plans, buttons appear on meal plan hover...)</li>
-        <li>allow users to edit meal plans (select functionality, button on hover...)</li>
-        <li>anything else?</li>
-      </ul> */}
-      {/* all components for mymeals will go here */}
-
       <div className={styles.plansContainer}>
               <h1>My Meal Plans</h1>
               <hr className={styles.divider} />
