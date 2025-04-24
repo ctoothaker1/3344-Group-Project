@@ -31,7 +31,7 @@
 }
 .toolbar select:hover,
 .nonFavoriteButton:hover{
-    background-color: #00691f;
+    background-color: #027a26;
 }
 .favoriteBtn{
     padding: 10px 20px;
@@ -45,7 +45,7 @@
     background-color: #004d13e5;
 }
 .favoriteBtn:hover{
-    background-color: #00691f;
+    background-color: #027a26;
 }
 .favorited{
     background-color: darkred;

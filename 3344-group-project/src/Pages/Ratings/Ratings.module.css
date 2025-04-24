@@ -1,59 +1,95 @@
 .container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .none {
-    text-align: center;
-    color: #666;
-  }
-  
-  .list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .link {
-    flex: 1;
-    text-decoration: none;
-    color: #007bff;
-  }
-  .link:hover {
-    text-decoration: underline;
-  }
-  
-  .score {
-    width: 3.5rem;
-    text-align: right;
-    font-weight: bold;
-  }
-  
-  .resetBtn {
-    margin-left: 1rem;
-    padding: 0.25rem 0.5rem;
-    border: 1px solid #c00;
-    background: white;
-    color: #c00;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .resetBtn:hover {
-    background: #fdd;
-  }
-  
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.none {
+  text-align: center;
+  color: #666;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0px 12px 9px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  width: 60vw;
+  max-width: 500px;
+}
+
+.link {
+  flex: 1;
+  font-size: 1.3em;
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.score {
+  width: 3.5rem;
+  text-align: right;
+  font-weight: bold;
+}
+
+.resetBtn {
+  margin-left: 1rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #c00;
+  background: white;
+  color: #c00;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.resetBtn:hover {
+  background: #fdd;
+}
+.sortBtn{
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  background-color: #004d13e5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  background-color: #004d13e5;
+  width: 35vw;
+  max-width: 250px;
+  margin-bottom: 15px;
+  box-shadow: 0px 12px 9px rgba(0, 0, 0, 0.4);
+}
+.sortBtn:hover{
+  background-color: #027a26;
+}
+.divider {
+  border: none;
+  height: 4px;
+  background-color: black;
+  margin: 1rem 0 2rem;
+  width: 80%;
+  border-radius: 4px;
+}
