@@ -2,11 +2,13 @@ import { RatingsContext } from "./RatingsContext.jsx";
 import {useContext} from "react";
 import styles from "./AddRatings.module.css";
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom';
 // pass in the ratings like <Rating getRating={{recipe.id, value}}
 function AddRatings({recipeID})
 {
 const {ratings,setRatings}=useContext(RatingsContext);
 const [isEditing, setIsEditing] = useState(false);
+const navigate = useNavigate();
  //if the user already has a rating we know that we are just changing the value 
 const handleRating=(e)=>
 {
@@ -43,9 +45,14 @@ const handleRating=(e)=>
             <div className={styles.editContainer}>
             { /* is user changing rating */ }
             {!isEditing && (
+                <div>
                 <button className={styles.changeBtn} onClick={() => setIsEditing(true)}>
                     Change
                 </button>
+                <button className={styles.ratingsPageBtn} onClick={() => navigate('/ratings')}>
+                    All Ratings
+                </button>
+                </div>
             )}
             {isEditing && (
           <>

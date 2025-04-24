@@ -22,6 +22,19 @@
 .changeBtn:hover{
     background-color: whitesmoke;
 }
+.ratingsPageBtn{
+    background: transparent;
+    color: #333;
+    border: 2px solid #a0a0a0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-left: 7px;
+}
+.ratingsPageBtn:hover{
+    background-color: whitesmoke;
+}
 .ratingContainer select{
     padding: 6px 10px;
     font-size: 1rem;
