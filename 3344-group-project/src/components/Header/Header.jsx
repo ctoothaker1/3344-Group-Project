@@ -15,7 +15,7 @@ const Header = () => {
               <li><Link to="/">Home</Link></li>
               <li><Link to='/favorites'>My Favorites</Link></li>
               <li><Link to='/myplans/'>My Meal Plans</Link></li>
-              <li><Link to='/search/'><img src="../../src/assets/search.png" alt="Search Icon" className={styles.searchIcon}/></Link></li>
+              <li><Link to='/search/'>Search</Link></li>
               {/*search icon source: <a href="https://www.flaticon.com/free-icons/magnifying-glass" title="magnifying glass icons">Magnifying glass icons created by chehuna - Flaticon</a>*/ }
           </ul>
         </nav>
