@@ -10,7 +10,7 @@ const apiKey = process.env.API_KEY;
 
 app.use(cors( // must specify origins to prepare for hosting on render
     {
-        origin: ["http://localhost:5173", "http://localhost:5001"], // render urls for frontend and backend go in the bracket here
+        origin: ["http://localhost:5173", "http://localhost:5001","https://recipeadvisorbackend.onrender.com","https://recipeadvisorfrontend.onrender.com"], // render urls for frontend and backend go in the bracket here
         methods: ["GET", "POST"],
         allowedHeaders: ["Content-Type", "Authorization"],
         credentials: true,   

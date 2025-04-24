@@ -11,10 +11,11 @@ const Featured = () => {
   const [loading, setLoading] = useState(false);
   const [meals, setMeals] = useState([]); // meals array to store meal data
   const navigate = useNavigate(); // for routing to meal details page
+  const proxyServerUrl = import.meta.env.VITE_PROXY_URL;
 
   // helper function, get a single meal.
   const fetchRandomMeal = async () => {
-    const endpoint = `http://localhost:5001/api/random`;
+    const endpoint = `${proxyServerUrl}/api/random`;
     try{
       const response = await fetch(endpoint);
       const data = await response.json();

@@ -10,6 +10,7 @@ import AddFavorite from '../MyFavorites/AddFavorite.jsx'
 import styles from './Search.module.css'
 
 
+
 const Search = () => {
   const {query} = useParams();
   const [results, setResults] = useState([]);
@@ -17,6 +18,8 @@ const Search = () => {
   const [filteredResults,setFilteredResults]=useState([])
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false); //loading state=false by default
+
+  const proxyServerUrl = import.meta.env.VITE_PROXY_URL;
 
   const handleFilter=(filters)=>
     {
@@ -26,13 +29,13 @@ const Search = () => {
   //API CALL with provided query
   const fetchSearchResults = async (query) => {
     setLoading(true); // fetching data, set loading to true
-    const endpoint = `http://localhost:5001/api/recipes?query=${query}`;
+    const endpoint = `${proxyServerUrl}/api/recipes?query=${query}`;
     console.log("✅ Final API endpoint:", endpoint);
     try
     {
       // this should be the endpoint we created in the server
       //const response = await fetch(`/api/recipes?query=${query}`); // //`http://localhost:5000/api/recipes?query=${query}`
-      const response = await fetch(`http://localhost:5001/api/recipes?query=${query}`);
+      const response = await fetch(`${proxyServerUrl}/api/recipes?query=${query}`);
       console.log("response variable: ",response);
       
       const data = await response.json(); // set data to json API response ERRRRRROR
