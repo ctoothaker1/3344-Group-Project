@@ -8,8 +8,8 @@ const Ratings=()=>
     const { ratings, setRatings } = useContext(RatingsContext);
 
     //reset rating using ID. triggered on btn clck
-    const resetRating = (id) => {
-        setRatings(ratings.filter(r => r.recipeID !== id));
+    const resetRating = (idMeal) => {
+        setRatings(ratings.filter(r => r.idMeal !== idMeal));
       };
 
     const sortedRatings=[...ratings].sort((a,b)=>b.rating-a.rating); 
@@ -23,17 +23,17 @@ const Ratings=()=>
             <p className={styles.none}>You haven't rated any recipes yet.</p>
           ) : (
             <ul className={styles.list}>
-              {sortedRatings.map(({ recipeID, rating }) => (
-                <li key={recipeID} className={styles.item}>
-                  <Link to={`/recipe/${recipeID}`} className={styles.link}>
-                    {recipeID}
+              {sortedRatings.map(({ idMeal, recipeName, rating }) => (
+                <li key={idMeal} className={styles.item}>
+                  <Link to={`/recipe/${idMeal}`} className={styles.link}>
+                    {recipeName}
                   </Link>
     
                   <span className={styles.score}>{rating}/10</span>
     
                   <button
                     className={styles.resetBtn}
-                    onClick={() => resetRating(recipeID)}
+                    onClick={() => resetRating(idMeal)}
                   >
                     Reset
                   </button>

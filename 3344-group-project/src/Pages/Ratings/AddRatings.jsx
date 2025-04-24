@@ -4,22 +4,22 @@ import styles from "./AddRatings.module.css";
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom';
 // pass in the ratings like <Rating getRating={{recipe.id, value}}
-function AddRatings({recipeID}) {
+function AddRatings({recipeName, idMeal}) {
 
     const {ratings,setRatings}=useContext(RatingsContext);
     const [isEditing, setIsEditing] = useState(false);
     const navigate = useNavigate();
 
     const currentRating =
-    ratings.find(r => r.recipeID === recipeID)?.rating ?? null;
+    ratings.find(r => r.idMeal === idMeal)?.rating ?? null;
 
   const saveRating = (value) => {
     setRatings(prev =>
-      prev.some(r => r.recipeID === recipeID)
+      prev.some(r => r.idMeal === idMeal)
         ? prev.map(r =>
-            r.recipeID === recipeID ? { recipeID, rating: value } : r
+            r.idMeal === idMeal ? { idMeal, recipeName, rating: value } : r
           )
-        : [...prev, { recipeID, rating: value }]
+        : [...prev, { idMeal,recipeName, rating: value }]
     );
     setIsEditing(false);
   };

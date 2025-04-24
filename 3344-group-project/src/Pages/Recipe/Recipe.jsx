@@ -135,7 +135,7 @@ const Recipe = () => {
             <div className={styles.leftContainer}>
                 <h1>{recipe.strMeal}</h1>
                 <img src={recipe.strMealThumb} alt={recipe.strMeal} className={styles.recipeImg}/>
-                <AddRatings recipeID={recipe.strMeal}/>
+                <AddRatings recipeName={recipe.strMeal} idMeal={recipe.idMeal}/>
 
             </div>
             <div className={styles.rightContainer}>
