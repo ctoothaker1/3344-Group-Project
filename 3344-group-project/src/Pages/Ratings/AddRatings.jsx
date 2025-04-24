@@ -1,10 +1,12 @@
 import { RatingsContext } from "./RatingsContext.jsx";
 import {useContext} from "react";
 import styles from "./AddRatings.module.css";
+import { useState } from "react";
 // pass in the ratings like <Rating getRating={{recipe.id, value}}
 function AddRatings({recipeID})
 {
 const {ratings,setRatings}=useContext(RatingsContext);
+const [isEditing, setIsEditing] = useState(false);
  //if the user already has a rating we know that we are just changing the value 
 const handleRating=(e)=>
 {
@@ -22,40 +24,52 @@ const handleRating=(e)=>
         const newRatingsArray=
         [...ratings, {recipeID,rating:value}];
         setRatings(newRatingsArray);
-    
     }
-
-
-
+    setIsEditing(false);
 }
-
+    const currentRating = ratings.find(r => r.recipeID === recipeID)?.rating ?? null;
 
     return(
-        <div className={styles.ratingcontainer}>
-            <p>Your current rating:
-
+        <div className={styles.ratingContainer}>
+            <div className={styles.currentRating}>
+            <p>Current rating:</p>
             { ratings.some(r=>r.recipeID=recipeID)?
-            
             ratings.map(r=>
-                r.recipeID===recipeID ? <p key={r.recipeID}>{r.rating}</p>: null)
+                r.recipeID===recipeID ? <h2 key={r.recipeID}>{r.rating}/10</h2>: null)
                 : <p>No value has been entered</p>
              
             }
-            
-            </p>
-        <label for="ratings"> Your Rating:</label>
-            <select name="ratings" id="ratings" onChange={handleRating}>
-            <option value="1" >1</option>
-            <option value="2">2</option>
-            <option value="3" >3</option>
-            <option value="4" >4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            </select>
+            </div>
+            <div className={styles.editContainer}>
+            { /* is user changing rating */ }
+            {!isEditing && (
+                <button className={styles.changeBtn} onClick={() => setIsEditing(true)}>
+                    Change
+                </button>
+            )}
+            {isEditing && (
+          <>
+            <label htmlFor="ratings"> Your Rating:</label>
+                <select id="ratings" 
+                value={currentRating ?? "Not Rated"}
+                onChange={handleRating}>
+                    <option value="1" >1</option>
+                    <option value="2">2</option>
+                    <option value="3" >3</option>
+                    <option value="4" >4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <button className={styles.cancelBtn} onClick={() => setIsEditing(false)}>
+                    Cancel
+                </button>
+                </>
+                )}
+            </div>
        </div>
 
     );

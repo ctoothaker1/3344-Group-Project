@@ -22,7 +22,7 @@
     cursor: pointer;
     transition: background-color 0.2s;
 }
-.toggleButton :hover{
+.toggleButton:hover{
     background-color: #00691f;
 }
 .clearButton {
@@ -36,6 +36,6 @@
     transition: background-color 0.2s;
     margin-top:10px;
 }
-.clearButton :hover{
+.clearButton:hover{
     background-color: #00691f;
 }

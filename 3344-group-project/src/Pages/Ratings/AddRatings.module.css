@@ -1,13 +1,69 @@
-.ratingcontainer{
-
+.ratingContainer{
     display:flex;
-    flex-direction: column;
-    width:100%;
+    justify-content: space-evenly;
+    flex-direction: column; 
+    align-items: center;      
+    gap: 1rem;   
     border-radius: 8px;
     border:2px solid transparent ;
-    padding:5px;
+    padding:2px 20px 2px 20px;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2) inset;
-    margin-top:5px;
+    margin-top:10px;
+}
+.changeBtn{
+    background: transparent;
+    color: #333;
+    border: 2px solid #a0a0a0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.changeBtn:hover{
+    background-color: whitesmoke;
+}
+.ratingContainer select{
+    padding: 6px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #004d13e5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.ratingContainer select:hover{
+    background-color: #00691f;
+}
+.currentRating{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.currentRating h2{
+    margin: 0;
+}
+.editContainer{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.editContainer label{
+    margin-right: 5px;
+}
+.cancelBtn{
+    margin-left: 5px;
+    background-color: red;
+    padding: 6px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 
-
+}
+.cancelBtn:hover{
+    background-color: darkred;
 }

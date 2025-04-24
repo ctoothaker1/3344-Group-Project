@@ -152,7 +152,7 @@ const Recipe = () => {
                 </div>
                 <h2>Instructions:</h2>
                 <p>{recipe.strInstructions}</p>
-                {/* embed strYoutube??? */}
+                <button className={styles.sourceBtn}><a href={recipe.strSource} target='_blank'>Original Source</a></button>
             </div>
         </div>
         </div>

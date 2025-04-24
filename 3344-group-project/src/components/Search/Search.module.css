@@ -59,17 +59,12 @@
         gap: 12px;
         width: 100%;
     }
-
-    .searchContainer input,
-    .searchContainer button {
-        width: 100%;
-    }
 }
 @media screen and (max-width: 480px){
     .searchContainer{
         flex-direction: column;
     }
     .searchContainer input{
-        width: 60%;
+        width: auto;
     }
 }

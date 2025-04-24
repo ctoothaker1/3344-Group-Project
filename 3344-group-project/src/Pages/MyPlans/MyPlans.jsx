@@ -78,6 +78,7 @@ const MyPlans = () => {
                   mealPlans.map(plan => (
                       <div key={plan.name} className={styles.planCard}>
                         <h3>{plan.name}</h3>
+                        <p>Total Recipes: {Object.values(plan.days).flat().length}</p> {/*add all meals from each day to an array (.flat) then find len */}
                         {/* OTHER PLAN DETAILS */}
                         <div className={styles.cardButtons}>
                           <button onClick={() => handlePlanClick(plan)}>View Plan</button>

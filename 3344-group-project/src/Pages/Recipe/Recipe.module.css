@@ -21,6 +21,9 @@
     border-radius: 8px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2) inset;
 }
+/* .ratingComponentContainer{
+    
+} */
 .recipeImg{
     max-width: 45vw;
     border-radius: 8px;
@@ -46,6 +49,22 @@
     margin-right:10px;
     border-radius: 8px;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2 )inset;
+}
+.sourceBtn{
+    background: transparent;
+    color: #333;
+    border: 2px solid #a0a0a0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.sourceBtn:hover{
+    background-color: whitesmoke;
+}
+.sourceBtn a{
+    color: black;
+    text-decoration: none;
 }
 
 /* smaller screen media query makes layout column*/
