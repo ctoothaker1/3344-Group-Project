@@ -2,7 +2,7 @@
 
 A ReactJS application for browsing recipes and planning meals.
 
-Live demo: (https://github.com/ctoothaker1/3344-Group-Project)
+Live demo: (https://recipeadvisorfrontend.onrender.com/)
 
 ## Features
 
